@@ -11,13 +11,14 @@ public class E01RecursiveArraySum {
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
-
-        int sum = 0;
-
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
-        }
-
+        int sum = sumNumbers(numbers, 0);
         System.out.println(sum);
+
+    }
+    public static int sumNumbers(int [] arr, int index) {
+        if (index >= arr.length) {
+            return 0;
+        }
+        return arr[index] + sumNumbers(arr, index + 1);
     }
 }
